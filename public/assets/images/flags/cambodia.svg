@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <rect width="600" height="400" fill="#032EA1"/>
+  <rect y="100" width="600" height="200" fill="#E00025"/>
+  <g fill="#FFFFFF">
+    <path d="M150 270h300v18H150z"/>
+    <path d="M175 250h250v20H175z"/>
+    <path d="M200 230h200v20H200z"/>
+    <!-- Main Center Tower -->
+    <path d="M280 140h40v90h-40z"/>
+    <polygon points="300,95 272,145 328,145"/>
+    <!-- Mid-Left Tower -->
+    <path d="M232 170h34v60h-34z"/>
+    <polygon points="249,135 225,175 273,175"/>
+    <!-- Mid-Right Tower -->
+    <path d="M334 170h34v60h-34z"/>
+    <polygon points="351,135 327,175 375,175"/>
+    <!-- Outer-Left Tower -->
+    <path d="M185 195h30v35h-30z"/>
+    <polygon points="200,165 180,200 220,200"/>
+    <!-- Outer-Right Tower -->
+    <path d="M385 195h30v35h-30z"/>
+    <polygon points="400,165 380,200 420,200"/>
+    <!-- Central temple stairs & gate accents -->
+    <polygon points="300,115 288,140 312,140" fill="#E00025"/>
+    <polygon points="249,150 240,170 258,170" fill="#E00025"/>
+    <polygon points="351,150 342,170 360,170" fill="#E00025"/>
+  </g>
+</svg>

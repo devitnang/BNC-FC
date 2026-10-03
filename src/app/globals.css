@@ -1,26 +1,218 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Kantumruy Pro';
+  src: url('/assets/fonts/kantumruy_pro/Kantumruy-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kantumruy Pro';
+  src: url('/assets/fonts/kantumruy_pro/Kantumruy-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kantumruy Pro';
+  src: url('/assets/fonts/kantumruy_pro/Kantumruy-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  --primary-blue: #0c2b5e;
+  --secondary-blue: #1665a5;
+  --dark-blue: #06152e;
+  --navy-deep: #030b18;
+  --accent-blue: #186bb0;
+  --light-blue: #eaf3fb;
+  --grid-line: rgba(22, 101, 165, 0.12);
+  --foreground: #06152e;
   --background: #ffffff;
-  --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* STRICT ZERO BORDER RADIUS FOR ALL ELEMENTS AS REQUESTED */
+*,
+*::before,
+*::after,
+button,
+input,
+textarea,
+select,
+div,
+span,
+img,
+section,
+nav,
+footer,
+article,
+aside,
+header,
+main,
+dialog,
+table,
+td,
+th {
+  border-radius: 0px !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
+  background-color: #ffffff;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-kantumruy), 'Kantumruy Pro', var(--font-inter), var(--font-outfit), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #0c2b5e;
+  selection-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Khmer Language Font Assignment using Kantumruy Pro & Diacritic Clearance */
+html.font-khmer,
+html[lang="km"],
+html[lang="kh"],
+.font-khmer,
+:lang(km),
+:lang(kh) {
+  font-family: var(--font-kantumruy), 'Kantumruy Pro', var(--font-inter), system-ui, sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+html.font-khmer h1,
+html.font-khmer h2,
+html.font-khmer h3,
+html.font-khmer h4,
+html.font-khmer h5,
+html.font-khmer h6,
+html[lang="km"] h1,
+html[lang="km"] h2,
+html[lang="km"] h3,
+html[lang="km"] h4,
+html[lang="km"] h5,
+html[lang="km"] h6 {
+  font-family: var(--font-kantumruy), 'Kantumruy Pro', sans-serif !important;
+  letter-spacing: normal !important;
+  line-height: 1.4 !important;
+  padding-bottom: 0.35rem !important;
+  padding-top: 0.15rem !important;
+}
+
+html.font-khmer button,
+html.font-khmer input,
+html.font-khmer textarea,
+html.font-khmer label,
+html.font-khmer span,
+html.font-khmer p,
+html.font-khmer a,
+html[lang="km"] button,
+html[lang="km"] input,
+html[lang="km"] textarea,
+html[lang="km"] label,
+html[lang="km"] span,
+html[lang="km"] p,
+html[lang="km"] a {
+  font-family: var(--font-kantumruy), 'Kantumruy Pro', sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+::selection {
+  background: #0c2b5e;
+  color: #ffffff;
+}
+
+/* Custom Tactical Grid Backgrounds */
+.tactical-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(22, 101, 165, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 101, 165, 0.07) 1px, transparent 1px);
+}
+
+.tactical-grid-dark {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
+.tactical-field-lines {
+  background-image: radial-gradient(circle at center, transparent 30%, rgba(22, 101, 165, 0.05) 31%, transparent 32%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0c2b5e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1665a5;
+}
+
+/* Text Stroke Utilities */
+.text-stroke-blue {
+  -webkit-text-stroke: 1.5px #0c2b5e;
+  color: transparent;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 1.5px #ffffff;
+  color: transparent;
+}
+
+/* Sharp Glitch / Hover Border Transitions */
+.hover-bracket {
+  position: relative;
+}
+
+.hover-bracket::before,
+.hover-bracket::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.hover-bracket::before {
+  top: 0;
+  left: 0;
+}
+
+.hover-bracket::after {
+  bottom: 0;
+  right: 0;
+}
+
+.hover-bracket:hover::before {
+  width: 12px;
+  height: 12px;
+  border-top-color: #0c2b5e;
+  border-left-color: #0c2b5e;
+}
+
+.hover-bracket:hover::after {
+  width: 12px;
+  height: 12px;
+  border-bottom-color: #0c2b5e;
+  border-right-color: #0c2b5e;
 }
